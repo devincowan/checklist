@@ -11,9 +11,15 @@
 |
 */
 
-$router->get('/', function () use ($router) {
+$router->get('/', function (){
  return view('index');
 });
+
+// USER ROUTES
 $router->post('/login', 'LoginController@login');
 $router->post('/register', 'UserController@register');
 $router->get('/user', ['middleware' => 'auth', 'uses' =>  'UserController@get_user']);
+
+// LIST ROUTES
+$router->post('/todo/store', 'ToDosController@store');
+$router->get('/todo', 'ToDosController@get');

@@ -52,17 +52,18 @@ function newElement() {
       div.style.display = "none";
     }
   }
-}
 
-function ajax() {
-	$.ajax({
-		type: 'POST',
-		url: '/todo/add',
-		dataType: 'JSON',
-		data : form.serialize()
-	}).done(function (data) {
-		// done
-	}).fail(function () {
-		// fail
-	});
+	var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance
+	var theUrl = "/checklist/public/todo/store";
+	xmlhttp.open("POST", theUrl);
+	xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+	xmlhttp.send(JSON.stringify({ "name": inputValue}));
+
+	xmlhttp.onreadystatechange = function() {//Call a function when the state changes.
+		if(http.readyState == 4 && http.status == 200) {
+			alert(http.responseText);
+		}
+	}
+	http.send(params);
+
 }
