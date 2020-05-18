@@ -23,13 +23,13 @@
 				<section id="intro" class="main">
 
 					<ul id="myUL">
-						<li>Hit the gym</li>
-						<li class="checked">Pay bills</li>
-						<li>Meet George</li>
-						<li>Buy eggs</li>
-						<li>Read a book</li>
-						<li>Organize office</li>
+						@if( count( $todos ) )
+						@foreach ($todos as $request)
+							<li>{{$request->name}}</li>
+						@endforeach
+						@endif
 					</ul>
+
 
 					<div id="myDIV" class="header">
 						<h4>Add an item</h4>

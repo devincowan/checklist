@@ -11,9 +11,10 @@
 |
 */
 
-$router->get('/', function (){
- return view('index');
-});
+// $router->get('/', function (){
+//   return view('index');
+// });
+$router->get('/', 'IndexController@index');
 
 // USER ROUTES
 $router->post('/login', 'LoginController@login');

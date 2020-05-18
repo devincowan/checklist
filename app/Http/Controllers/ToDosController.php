@@ -26,7 +26,7 @@ class ToDosController extends Controller
     public function get()
     {
         try {
-            $res = ToDo::all();
+            $res['data'] = ToDo::all();
             $res['status'] = true;
             $res['message'] = 'Todo Get Success!';
             return response($res, 200);
