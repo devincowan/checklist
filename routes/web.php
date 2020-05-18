@@ -24,3 +24,5 @@ $router->get('/user', ['middleware' => 'auth', 'uses' =>  'UserController@get_us
 // LIST ROUTES
 $router->post('/todo/store', 'ToDosController@store');
 $router->get('/todo', 'ToDosController@get');
+$router->post('/todo/delete', 'ToDosController@delete');
+$router->post('/todo/complete', 'ToDosController@complete');

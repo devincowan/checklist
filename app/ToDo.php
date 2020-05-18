@@ -13,7 +13,7 @@ class ToDo extends Model
      * @var array
      */
     protected $fillable = [
-        'name'
+        'name', 'completed'
     ];
 
     protected $table = 'todos';

@@ -16,6 +16,20 @@ for (i = 0; i < close.length; i++) {
   close[i].onclick = function() {
     var div = this.parentElement;
     div.style.display = "none";
+
+		// Delete the to-do item
+		var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance
+		var theUrl = "/checklist/public/todo/delete";
+		xmlhttp.open("POST", theUrl);
+		xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+		xmlhttp.send(JSON.stringify({ "name": this.parentElement.firstChild.data}));
+
+		xmlhttp.onreadystatechange = function() {//Call a function when the state changes.
+			if(http.readyState == 4 && http.status == 200) {
+				alert(http.responseText);
+			}
+		}
+		http.send(params);
   }
 }
 
@@ -24,6 +38,20 @@ var list = document.querySelector('ul');
 list.addEventListener('click', function(ev) {
   if (ev.target.tagName === 'LI') {
     ev.target.classList.toggle('checked');
+
+		// Mark the item completed in db
+		var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance
+		var theUrl = "/checklist/public/todo/complete";
+		xmlhttp.open("POST", theUrl);
+		xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+		xmlhttp.send(JSON.stringify({ "name": ev.target.firstChild.data}));
+
+		xmlhttp.onreadystatechange = function() {//Call a function when the state changes.
+			if(http.readyState == 4 && http.status == 200) {
+				alert(http.responseText);
+			}
+		}
+		http.send(params);
   }
 }, false);
 

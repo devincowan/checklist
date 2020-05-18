@@ -12,7 +12,7 @@
 			<header id="header" class="alt">
 				<div class="inner">
 					<h1>TODO LIST</h1>
-					<p>JS AJAXING demo using a <a href="https://templated.co">TEMPLATED</a> view</p>
+					<p>Vanilla JS AJAXING demo using a <a href="https://templated.co">TEMPLATED</a> view</p>
 				</div>
 			</header>
 
@@ -24,9 +24,13 @@
 
 					<ul id="myUL">
 						@if( count( $todos ) )
-						@foreach ($todos as $request)
-							<li>{{$request->name}}</li>
-						@endforeach
+							@foreach ($todos as $request)
+								@if($request->completed)
+									<li class="checked">{{$request->name}}</li>
+								@else
+									<li>{{$request->name}}</li>
+								@endif
+							@endforeach
 						@endif
 					</ul>
 
