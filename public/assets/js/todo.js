@@ -19,7 +19,7 @@ for (i = 0; i < close.length; i++) {
 
 		// Delete the to-do item
 		var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance
-		var theUrl = "/checklist/public/todo/delete";
+		var theUrl = "todo/delete";
 		xmlhttp.open("POST", theUrl);
 		xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 		xmlhttp.send(JSON.stringify({ "name": this.parentElement.firstChild.data}));
@@ -41,7 +41,7 @@ list.addEventListener('click', function(ev) {
 
 		// Mark the item completed in db
 		var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance
-		var theUrl = "/checklist/public/todo/complete";
+		var theUrl = "todo/complete";
 		xmlhttp.open("POST", theUrl);
 		xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 		xmlhttp.send(JSON.stringify({ "name": ev.target.firstChild.data}));
@@ -82,7 +82,7 @@ function newElement() {
   }
 
 	var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance
-	var theUrl = "/checklist/public/todo/store";
+	var theUrl = "todo/store";
 	xmlhttp.open("POST", theUrl);
 	xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 	xmlhttp.send(JSON.stringify({ "name": inputValue}));
