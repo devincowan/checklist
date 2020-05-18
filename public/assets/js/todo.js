@@ -25,11 +25,11 @@ for (i = 0; i < close.length; i++) {
 		xmlhttp.send(JSON.stringify({ "name": this.parentElement.firstChild.data}));
 
 		xmlhttp.onreadystatechange = function() {//Call a function when the state changes.
-			if(http.readyState == 4 && http.status == 200) {
-				alert(http.responseText);
+			if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+				// alert(xmlhttp.responseText);
 			}
 		}
-		http.send(params);
+		xmlhttp.send(params);
   }
 }
 
@@ -47,11 +47,11 @@ list.addEventListener('click', function(ev) {
 		xmlhttp.send(JSON.stringify({ "name": ev.target.firstChild.data}));
 
 		xmlhttp.onreadystatechange = function() {//Call a function when the state changes.
-			if(http.readyState == 4 && http.status == 200) {
-				alert(http.responseText);
+			if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+				// alert(xmlhttp.responseText);
 			}
 		}
-		http.send(params);
+		xmlhttp.send(params);
   }
 }, false);
 
@@ -88,10 +88,10 @@ function newElement() {
 	xmlhttp.send(JSON.stringify({ "name": inputValue}));
 
 	xmlhttp.onreadystatechange = function() {//Call a function when the state changes.
-		if(http.readyState == 4 && http.status == 200) {
-			alert(http.responseText);
+		if(xmlhttp.readyState == 4 && http.status == 200) {
+			// alert(xmlhttp.responseText);
 		}
 	}
-	http.send(params);
+	xmlhttp.send(params);
 
 }
