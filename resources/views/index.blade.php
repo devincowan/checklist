@@ -19,6 +19,25 @@
 			<!-- Wrapper -->
 			<div id="wrapper">
 
+				<!-- Banner -->
+				<section id="intro" class="main">
+
+					<ul id="myUL">
+						<li>Hit the gym</li>
+						<li class="checked">Pay bills</li>
+						<li>Meet George</li>
+						<li>Buy eggs</li>
+						<li>Read a book</li>
+						<li>Organize office</li>
+					</ul>
+
+					<div id="myDIV" class="header">
+						<h4>Add an item</h4>
+						<input type="text" id="myInput" placeholder="Title...">
+						<span onclick="newElement()" class="addBtn">Add</span>
+					</div>
+				</section>
+
 				<section id="cta" class="main special">
 					<ul class="actions">
 						<a href="assets/js/todo.js" class="button big">View todo.js</a>
