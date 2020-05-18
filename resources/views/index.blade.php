@@ -25,10 +25,12 @@
 					<ul id="myUL">
 						@if( count( $todos ) )
 							@foreach ($todos as $request)
-								@if($request->completed)
-									<li class="checked">{{$request->name}}</li>
-								@else
-									<li>{{$request->name}}</li>
+								@if (!empty($request->name))
+								 @if($request->completed)
+									 <li class="checked">{{$request->name}}</li>
+							  	@else
+									 <li>{{$request->name}}</li>
+								 @endif
 								@endif
 							@endforeach
 						@endif

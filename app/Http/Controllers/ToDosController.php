@@ -10,9 +10,11 @@ class ToDosController extends Controller
     {
         try {
             $name = $request->input('name');
-            $save = ToDo::create([
-                'name'=> $name,
-            ]);
+            if(!empty($name)){
+              $save = ToDo::create([
+                  'name'=> $name,
+              ]);
+            }
             $res['status'] = true;
             $res['message'] = 'Todo Create Success!';
             return response($res, 200);
@@ -27,7 +29,12 @@ class ToDosController extends Controller
     {
         try {
             $name = $request->input('name');
-            $save = ToDo::where('name', $name)->update(['completed' => 1]);
+            $checked = $request->input('checked');
+            if($checked){
+              $save = ToDo::where('name', $name)->update(['completed' => 1]);
+            }else{
+              $save = ToDo::where('name', $name)->update(['completed' => 0]);
+            }
             $res['status'] = true;
             $res['message'] = 'Todo Complete Success!';
             return response($res, 200);

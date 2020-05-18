@@ -44,7 +44,7 @@ list.addEventListener('click', function(ev) {
 		var theUrl = "todo/complete";
 		xmlhttp.open("POST", theUrl);
 		xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-		xmlhttp.send(JSON.stringify({ "name": ev.target.firstChild.data}));
+		xmlhttp.send(JSON.stringify({ "name": ev.target.firstChild.data, "checked": ev.target.attributes["class"].nodeValue.includes("checked")}));
 
 		xmlhttp.onreadystatechange = function() {//Call a function when the state changes.
 			if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
